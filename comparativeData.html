@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Comparative Data Tab</title>
+
+  
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+</head>
+<body>
+    <header>
+        <a href="Index.html" style="text-decoration: none; color: inherit;">
+            <h1>NBME Shelf Exam Self Scoring Dashboard</h1>
+        </a>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100 justify-content-between">
+                <li class="nav-item"><a class="nav-link" href="pediatrics.html" style="font-weight: bold; font-size: 1.25rem;">Pediatrics</a></li>
+                <li class="nav-item"><a class="nav-link" href="psychiatry.html" style="font-weight: bold; font-size: 1.25rem;">Psychiatry</a></li>
+                <li class="nav-item"><a class="nav-link" href="surgery.html" style="font-weight: bold; font-size: 1.25rem;">Surgery</a></li>
+                <li class="nav-item"><a class="nav-link" href="obgyn.html" style="font-weight: bold; font-size: 1.25rem;">OBGYN</a></li>
+                <li class="nav-item"><a class="nav-link" href="internalMedicine.html" style="font-weight: bold; font-size: 1.25rem;">Internal Medicine</a></li>
+                <li class="nav-item"><a class="nav-link" href="neurology.html" style="font-weight: bold; font-size: 1.25rem;">Neurology</a></li>
+                <li class="nav-item"><a class="nav-link" href="familyMedicine.html" style="font-weight: bold; font-size: 1.25rem;">Family Medicine</a></li>
+                <li class="nav-item active"><a class="nav-link" href="comparativeData.html" style="font-weight: bold; font-size: 1.25rem;">Comparative Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="tab" id="tab8">
+
+        <div style="text-align: center;">
+            <h2>ComparativeData</h2>
+            <p id="currentTabText">Comparative Data for <span id="tabTextSpan" contenteditable="true" style="color: blue;">"Enter Category"</span></p>
+        </div>    
+        <h2>ComparativeData</h2>
+
+        
+        <!-- Canvas for the chart -->
+        <canvas id="chart8" width="600" height="400" style="margin-top: -50px;"></canvas>
+
+        <!-- (Test 1) -->
+        <div style="text-align: center;">
+            <label for="performanceOptions">Test 1 Performance:</label>
+            <select id="performanceOptions">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+        <!-- (Test 2) -->
+        <div style="text-align: center;">
+            <label for="performanceOptionsX2">Test 2 Performance:</label>
+            <select id="performanceOptionsX2">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+        <!-- (Test 3) -->
+        <div style="text-align: center;">
+            <label for="performanceOptionsX3">Test 3 Performance:</label>
+            <select id="performanceOptionsX3">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+        <!-- (Test 4) -->
+        <div style="text-align: center;">
+            <label for="performanceOptionsX4">Test 4 Performance:</label>
+            <select id="performanceOptionsX4">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+        <!-- (Test 5) -->
+        <div style="text-align: center;">
+            <label for="performanceOptionsX5">Test 5 Performance:</label>
+            <select id="performanceOptionsX5">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+        <!-- (Test 6) -->
+        <div style="text-align: center;">
+            <label for="performanceOptionsX6">Test 6 Performance:</label>
+            <select id="performanceOptionsX6">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+        <!-- (Test 7) -->
+        <div style="text-align: center;">
+            <label for="performanceOptionsX7">Test 7 Performance:</label>
+            <select id="performanceOptionsX7">
+                <option value="blank" selected></option>
+                <option value="Higher">Higher</option>
+                <option value="Same">Same</option>
+                <option value="Lower">Lower</option>
+            </select>
+        </div>
+
+    </div>
+
+    <h2>ComparativeData</h2>
+
+
+    <footer class="footer fixed-bottom">
+        <div class="container text-center">
+            <span> UNR Med 2023</span>
+        </div>
+    </footer>
+
+    <script>
+                     
+        // Chart data specific to the tab
+        const chartData8 = {
+            labels: [], 
+            datasets: [
+                {
+                    label: 'Performance',
+                    data: [],
+                    fill: false,
+                    borderColor: 'blue',
+                    pointRadius: 5,
+                    pointBackgroundColor: 'blue',
+                },
+            ],
+        };
+
+        // Create the chart instance 
+        const ctx8 = document.getElementById('chart8').getContext('2d');
+        const chart = new Chart(ctx8, {
+            type: 'line',
+            data: chartData8,
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Test Number',
+                        },
+                        type: 'linear', 
+                        min: 0,
+                        max: 8,
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Performance to EPC',
+                        },
+                        ticks: {
+                            display: false, 
+                        },
+                        min: -1.2,
+                        max: 1.2,
+                    },
+                },
+                
+            },
+        });
+
+        // Function for test performance
+        function handlePerformanceOptions(selectedOption, xValue) {
+            const dataset = chartData8.datasets[0];
+
+            if (selectedOption === 'blank') {
+                
+                chart.data.datasets[0].data = chart.data.datasets[0].data.filter(point => point.x !== xValue);
+            } else {
+                
+                chart.data.datasets[0].data = chart.data.datasets[0].data.filter(point => point.x !== xValue);
+
+             
+                if (selectedOption === 'Higher') {
+                    dataset.data.push({ x: xValue, y: 1 });
+                } else if (selectedOption === 'Same') {
+                    dataset.data.push({ x: xValue, y: 0 });
+                } else if (selectedOption === 'Lower') {
+                    dataset.data.push({ x: xValue, y: -1 });
+                }
+
+              
+                chart.data.datasets[0].data.sort((a, b) => a.x - b.x);
+            }
+
+            
+
+            chart.update();
+        }
+
+       
+        const performanceOptions = document.getElementById('performanceOptions');
+        performanceOptions.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptions.value, 1);
+        });
+
+        const performanceOptionsX2 = document.getElementById('performanceOptionsX2');
+        performanceOptionsX2.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptionsX2.value, 2);
+        });
+
+        const performanceOptionsX3 = document.getElementById('performanceOptionsX3');
+        performanceOptionsX3.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptionsX3.value, 3);
+        });
+
+        const performanceOptionsX4 = document.getElementById('performanceOptionsX4');
+        performanceOptionsX4.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptionsX4.value, 4);
+        });
+
+        const performanceOptionsX5 = document.getElementById('performanceOptionsX5');
+        performanceOptionsX5.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptionsX5.value, 5);
+        });
+
+        const performanceOptionsX6 = document.getElementById('performanceOptionsX6');
+        performanceOptionsX6.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptionsX6.value, 6);
+        });
+
+        const performanceOptionsX7 = document.getElementById('performanceOptionsX7');
+        performanceOptionsX7.addEventListener('change', (event) => {
+            handlePerformanceOptions(performanceOptionsX7.value, 7);
+        });
+    </script>
+</body>
+</html>
